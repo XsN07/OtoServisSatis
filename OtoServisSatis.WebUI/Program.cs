@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore.Storage;
+using OtoServisSatis.Data;
+using OtoServisSatis.Service.Abstract;
+using OtoServisSatis.Service.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<DatabaseContext>();
+
+builder.Services.AddTransient(typeof(IService<>),typeof(Service<>));
+
+builder.Services.AddMvc();
 
 var app = builder.Build();
 

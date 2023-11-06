@@ -159,13 +159,13 @@ namespace OtoServisSatis.Data.Migrations
                         column: x => x.AracId,
                         principalTable: "Araclar",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Satislar_Musteriler_MusteriId",
                         column: x => x.MusteriId,
                         principalTable: "Musteriler",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.InsertData(
