@@ -3,23 +3,32 @@ using System.Runtime.CompilerServices;
 
 namespace OtoServisSatis.Entities
 {//2
-    public class Arac : IEntity
-    {
-        public int Id { get; set; } 
-        public int MarkaId { get; set; }
+  public class Arac : IEntity
+  {
+    public int Id { get; set; }
 
-        [StringLength(50)]
-        public string Renk { get; set; }
-        public decimal Fiyati { get; set; }
 
-        [StringLength(50)]
-        public string Modeli { get; set; }
+    [Display(Name = "Marka Adı"), Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    public int MarkaId { get; set; }
 
-        [StringLength(50)]
-        public string KasaTipi { get; set; }
-        public int ModelYili { get; set; }
-        public bool SatistaMi { get; set; }
-        public string Notlar { get; set; }
-        public virtual Marka? Marka { get; set; } //Araç sınıfı ile Marka sınıf arasında bağlantı
-    }
+    [StringLength(50), Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    public string Renk { get; set; }
+    public decimal Fiyati { get; set; }
+
+    [StringLength(50),Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    public string Modeli { get; set; }
+
+    [StringLength(50),Required(ErrorMessage = "{0} boş bırakılamaz!")]
+
+    [Display(Name = "Kasa Tipi")]
+    public string KasaTipi { get; set; }
+
+    [Display(Name = "Model Yılı?")]
+    public int ModelYili { get; set; }
+
+    [Display(Name = "Satışta mı?")]
+    public bool SatistaMi { get; set; }
+    public string Notlar { get; set; }
+    public virtual Marka? Marka { get; set; } //Araç sınıfı ile Marka sınıf arasında bağlantı
+  }
 }
