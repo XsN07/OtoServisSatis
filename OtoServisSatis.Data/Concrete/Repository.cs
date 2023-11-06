@@ -30,7 +30,7 @@ namespace OtoServisSatis.Data.Concrete
 			_dbSet.Add(entity);
 		}
 
-		public async Task AddAsync(T entity)
+		public async Task UpdateAsync(T entity)
 		{
 			await _dbSet.AddAsync(entity);
 		}
