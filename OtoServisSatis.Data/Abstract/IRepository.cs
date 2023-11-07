@@ -31,6 +31,7 @@ namespace OtoServisSatis.Data.Abstract
 		Task<List<T>> GetAllAsync();
 		Task<List<T>> GetAllAsync(Expression<Func<T, bool>> expression);
 
+		//Task AddAsync(T entity);
 		Task UpdateAsync(T entity);
 
 		Task<int> SaveAsync();
