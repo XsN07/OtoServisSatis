@@ -8,7 +8,7 @@ namespace OtoServisSatis.Entities
 
     public int Id { get; set; }
 
-    [Display(Name = "Araç No"), Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    [Display(Name = "Araç"), Required(ErrorMessage = "{0} boş bırakılamaz!")]
     public int AracId { get; set; }
     [StringLength(50)]
 
@@ -30,6 +30,8 @@ namespace OtoServisSatis.Entities
     [StringLength(15)]
     public string? Telefon { get; set; }
     public string? Notlar { get; set; }
+
+    [Display(Name = "Araç")]
     public virtual Arac? Arac { get; set; }
   }
 }
