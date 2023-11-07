@@ -49,7 +49,7 @@ namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
       {
         try
         {
-         await _service.UpdateAsync(kullanici);
+         _service.Add(kullanici);
           await _service.SaveAsync();
           return RedirectToAction(nameof(Index));
         }
