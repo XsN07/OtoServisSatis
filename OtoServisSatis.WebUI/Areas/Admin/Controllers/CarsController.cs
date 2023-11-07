@@ -22,6 +22,7 @@ namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
     // GET: CarsController
     public async Task<IActionResult> IndexAsync()
     {
+      ViewBag.MarkaId = new SelectList(await _serviceMarka.GetAllAsync(), "Id", "Adi");
       var model = await _service.GetAllAsync();
       return View(model);
     }
