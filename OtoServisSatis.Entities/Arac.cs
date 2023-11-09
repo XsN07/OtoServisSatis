@@ -28,6 +28,9 @@ namespace OtoServisSatis.Entities
 
     [Display(Name = "Satışta mı?")]
     public bool SatistaMi { get; set; }
+
+    [Display(Name = "Ana Sayfa")]
+    public bool AnaSayfa { get; set; }
     public string? Notlar { get; set; }
     [StringLength(100)]
     public string? Resim1 { get; set; }
