@@ -21,10 +21,12 @@ namespace OtoServisSatis.Entities
 
     [StringLength(11)]
 
-    [Display(Name = "TC Numarası"), Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    [Display(Name = "TC Numarası")]
     public string? TcNo { get; set; }
     [StringLength(50)]
-    public string Email { get; set; }
+
+		[Display(Name = "Email"), Required(ErrorMessage = "{0} boş bırakılamaz!")]
+		public string Email { get; set; }
     [StringLength(500)]
     public string? Adres { get; set; }
     [StringLength(15)]
