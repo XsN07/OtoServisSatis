@@ -15,10 +15,10 @@ namespace OtoServisSatis.Entities
     public string Renk { get; set; }
     public decimal Fiyati { get; set; }
 
-    [StringLength(50),Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    [StringLength(50), Required(ErrorMessage = "{0} boş bırakılamaz!")]
     public string Modeli { get; set; }
 
-    [StringLength(50),Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    [StringLength(50), Required(ErrorMessage = "{0} boş bırakılamaz!")]
 
     [Display(Name = "Kasa Tipi")]
     public string KasaTipi { get; set; }
@@ -28,7 +28,15 @@ namespace OtoServisSatis.Entities
 
     [Display(Name = "Satışta mı?")]
     public bool SatistaMi { get; set; }
-    public string Notlar { get; set; }
+    public string? Notlar { get; set; }
+    [StringLength(100)]
+    public string? Resim1 { get; set; }
+
+    [StringLength(100)]
+    public string? Resim2 { get; set; }
+
+    [StringLength(100)]
+    public string? Resim3 { get; set; }
     public virtual Marka? Marka { get; set; } //Araç sınıfı ile Marka sınıf arasında bağlantı
   }
 }

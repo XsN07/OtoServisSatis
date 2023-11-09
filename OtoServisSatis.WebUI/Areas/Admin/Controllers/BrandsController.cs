@@ -7,7 +7,7 @@ using OtoServisSatis.Service.Abstract;
 namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
 {
 
-	[Area("Admin"),Authorize(Policy ="AdminPolicy")]
+	[Area("Admin"),Authorize]
 	public class BrandsController : Controller
 	{
 		private readonly IService<Marka> _service;
@@ -83,8 +83,8 @@ namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
 		// GET: BrandsController/Delete/5
 		public async Task<ActionResult> DeleteAsync(int id)
 		{
-			var model = await _service.FindAsync(id)
-;
+			var model = await _service.FindAsync(id);
+
 			return View(model);
 		}
 

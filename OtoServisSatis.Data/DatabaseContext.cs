@@ -12,6 +12,7 @@ namespace OtoServisSatis.Data
         public DbSet<Rol> Roller { get; set; }
         public DbSet<Satis> Satislar { get; set; }
         public DbSet<Servis> Servisler { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=OtoServisSatisNetCore;Persist Security Info=True;User ID=sa;Password=0607;Trusted_Connection=True;TrustServerCertificate=Yes;MultipleActiveResultSets=true");  

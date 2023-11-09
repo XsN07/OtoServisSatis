@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OtoServisSatis.Entities;
+using OtoServisSatis.Service.Abstract;
 using OtoServisSatis.WebUI.Models;
 using System.Diagnostics;
 
@@ -6,30 +8,33 @@ namespace OtoServisSatis.WebUI.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private readonly IService<Slider> _service;
+
+    public HomeController(IService<Slider> service)
     {
-      _logger = logger;
+      _service = service;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> IndexAsync()
     {
-      return View();
+
+      var model =await _service.GetAllAsync();
+      return View(model);
     }
 
     public IActionResult Privacy()
     {
       return View();
     }
-     [Route("AccessDenied")]
+    [Route("AccessDenied")]
     public IActionResult AccessDenied()
     {
 
       return View();
     }
 
-   
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
