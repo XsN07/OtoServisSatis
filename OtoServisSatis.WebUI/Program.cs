@@ -3,7 +3,7 @@ using OtoServisSatis.Data;
 using OtoServisSatis.Service.Abstract;
 using OtoServisSatis.Service.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,12 +14,13 @@ builder.Services.AddDbContext<DatabaseContext>();
 
 builder.Services.AddTransient(typeof(IService<>),typeof(Service<>));
 builder.Services.AddTransient<ICarService,CarService>();
+builder.Services.AddTransient<IUserService,UserService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x=>{
 
-  x.LoginPath = "/Admin/Login";
+  x.LoginPath = "/Account/Login";
   x.AccessDeniedPath = "/AccessDenied";
-  x.LogoutPath = "/Admin/Logout";
+  x.LogoutPath = "/Account/Logout";
   x.Cookie.Name = "Admin";
   x.Cookie.MaxAge = TimeSpan.FromDays(7);
   x.Cookie.IsEssential = true;
@@ -29,8 +30,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization(x=>
 {
-  x.AddPolicy("AdminPolicy",policy=> policy.RequireClaim("Role","Admin"));
-  x.AddPolicy("UserPolicy",policy=> policy.RequireClaim("Role","User"));
+  x.AddPolicy("AdminPolicy",policy=> policy.RequireClaim(ClaimTypes.Role, "Admin"));
+  x.AddPolicy("UserPolicy",policy=> policy.RequireClaim(ClaimTypes.Role,"Admin", "User"));
+  x.AddPolicy("CustomerPolicy",policy=> policy.RequireClaim(ClaimTypes.Role,"Admin","Customer","User"));
 
 
 });

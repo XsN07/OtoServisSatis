@@ -8,8 +8,8 @@ using OtoServisSatis.Service.Abstract;
 namespace OtoServisSatis.WebUI.Areas.Admin.Controllers
 {
 
-  [Area("Admin"), Authorize]
-  public class SaleController : Controller
+	[Area("Admin"), Authorize(Policy = "AdminPolicy")]
+	public class SaleController : Controller
   {
 
     private readonly IService<Satis> _service;

@@ -14,7 +14,7 @@ namespace OtoServisSatis.Data.Abstract
 
      Task<List<Arac>> GetCustomerList();
      Task<List<Arac>> GetCustomerList(Expression<Func<Arac, bool>> expression);
-     Task<Arac> GetCustomerCar(int id);
+     Task<Arac> GetCustomerCar(int id); 
 
   }
 }

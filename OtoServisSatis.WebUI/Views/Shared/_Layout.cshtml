@@ -40,11 +40,11 @@
 					@if (Context.User.Identity.IsAuthenticated)
 					{
 						<a asp-controller="Account" asp-action="Index" class="btn btn-primary">Hesabım</a>
-						<a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Oturumu Kapat</a>
+						<a asp-controller="Account" asp-action="Logout" class="btn btn-warning">Oturumu Kapat</a>
 					}
 					else
 					{
-							<a asp-controller="Account" asp-action="Login" class="btn btn-primary">Giriş</a>
+							<a asp-controller="Account" asp-action="Login" class="btn btn-success">Giriş</a>
 					    <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Kayıt Ol</a>
 					}
 				
@@ -60,7 +60,7 @@
 
 	<footer class="border-top footer text-muted">
 		<div class="container">
-			&copy; 2023 - OtoServisSatis.WebUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+			&copy; 2023 - OtoServisSatis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 		</div>
 	</footer>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
