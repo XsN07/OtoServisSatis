@@ -46,11 +46,11 @@ namespace OtoServisSatis.WebUI.Controllers
 				{
 					_serviceMusteri.Add(musteri);
 					await _serviceMusteri.SaveAsync();
-					return Redirect(nameof(Index));
+					return Redirect("/Arac/Index/" + musteri.AracId);
 				}
 				catch
 				{
-					ModelState.AddModelError("", "Hata Oluştu!");
+					ModelState.AddModelError(" ", "Hata Oluştu!");
 				}
 			}
 			return View();

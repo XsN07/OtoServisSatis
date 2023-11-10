@@ -8,11 +8,11 @@ namespace OtoServisSatis.Entities
     public int Id { get; set; }
 
     [StringLength(50)]
-    [Display(Name = "Adı"),Required(ErrorMessage ="{0} boş bırakılamaz!")]
+    [Display(Name = "Ad"),Required(ErrorMessage ="{0} boş bırakılamaz!")]
     public string Adi { get; set; }
 
     [StringLength(50)]
-    [Display(Name = "Soyadı"),Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    [Display(Name = "Soyad"),Required(ErrorMessage = "{0} boş bırakılamaz!")]
     public string Soyadi { get; set; }
 
     [StringLength(50), Required(ErrorMessage = "{0} boş bırakılamaz!")]
@@ -24,7 +24,7 @@ namespace OtoServisSatis.Entities
     [StringLength(50)]
     public string? KullaniciAdi { get; set; }
 
-    [StringLength(50), Required(ErrorMessage = "{0} boş bırakılamaz!")]
+    [Display(Name = "Şifre") ,StringLength(50), Required(ErrorMessage = "{0} boş bırakılamaz!")]
     public string Sifre { get; set; }
     public bool AktifMi { get; set; }
 
